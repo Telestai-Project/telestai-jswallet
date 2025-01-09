@@ -1,4 +1,4 @@
-const RavencoinWallet = require("../../dist/index.cjs");
+const TelestaiWallet = require("../../dist/index.cjs");
 const expect = require("chai").expect;
 it("Test sweep", async () => {
   /* 
@@ -8,13 +8,13 @@ it("Test sweep", async () => {
     MAINNET const WIF = "Kz5U4Bmhrng4o2ZgwBi5PjtorCeq2dyM7axGQfdxsBSwCKi5ZfTw";
     TESTNET const WIF = "cUVdRNVobgjAw5jGWYkvbWmk42Vxzvte4btmsZ5qSqszdPi9M3Vy"
   */
-  const WIF = "cUVdRNVobgjAw5jGWYkvbWmk42Vxzvte4btmsZ5qSqszdPi9M3Vy";
-  const network = "rvn-test";
+  const WIF = "KyptgRU22E5viLtxYptrfokH8LGuhezAgca5nrg534PecaRSba3s";
+  const network = "tls";
 
   //The wallet that will RECEIVE the funds
-  const wallet = await RavencoinWallet.createInstance({
+  const wallet = await TelestaiWallet.createInstance({
     mnemonic:
-      "frozen drift quiz glove wrong cycle glide increase hybrid arch endorse brisk",
+      "salad hammer want used web finger comic gold trigger accident oblige pluck",
     network,
   });
 

@@ -1,15 +1,15 @@
-const RavencoinWallet = require("../../dist/index.cjs");
+const TelestaiWallet = require("../../dist/index.cjs");
 const expect = require("chai").expect;
-const SendManyTransaction = RavencoinWallet.SendManyTransaction;
+const SendManyTransaction = TelestaiWallet.SendManyTransaction;
 const crazyCatWalletPromise = require("./getWalletPromise");
 
-//Should have 10 RVN on testnet
+//Should have 10 TLS on testnet
 const mnemonic =
   "salad hammer want used web finger comic gold trigger accident oblige pluck";
 
-const walletPromise = RavencoinWallet.createInstance({
+const walletPromise = TelestaiWallet.createInstance({
   mnemonic,
-  network: "rvn-test",
+  network: "tls",
   offlineMode: true,
 });
 
@@ -96,7 +96,7 @@ it("Forced UTXOs must be part of transaction", async () => {
   const diff = value - (fee + change);
 
   //TO make sure we have consumed the forced UTXO
-  //The diff between inputs and outputs should be less than 1 RVN
+  //The diff between inputs and outputs should be less than 1 TLS
   expect(diff).to.be.lessThan(1);
   return true;
 });

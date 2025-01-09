@@ -1,9 +1,9 @@
-import { Wallet } from "./ravencoinWallet";
+import { Wallet } from "./telestaiWallet";
 
 export interface ISettings {
   assets?: Array<string>;
-  baseCurrency: "RVN"; //TODO is this really needed? do we not get that info from the network attribute?
-  mode: "RAVENCOIN_AND_ASSETS" | "ASSETS" | "SOME_ASSETS";
+  baseCurrency: "TLS"; //TODO is this really needed? do we not get that info from the network attribute?
+  mode: "TELESTAI_AND_ASSETS" | "ASSETS" | "SOME_ASSETS";
 
   subTagline?: string;
   tagline: string;
@@ -18,7 +18,7 @@ export interface ISend {
   forcedChangeAddressAssets?: string;
   forcedChangeAddressBaseCurrency?: string;
 }
-export type ChainType = "rvn" | "rvn-test" | "evr" | "evr-test";
+export type ChainType = "tls" | "tls-test" | "evr" | "evr-test";
 export interface IAddressDelta {
   address: string;
   assetName: string;
@@ -79,8 +79,8 @@ export interface ISendResult {
     outputs: any;
     privateKeys?: TPrivateKey;
     rawUnsignedTransaction?: string;
-    rvnAmount: number;
-    rvnChangeAmount: number;
+    tlsAmount: number;
+    tlsChangeAmount: number;
     signedTransaction?: string;
     UTXOs: IUTXO[];
     walletMempool: any;

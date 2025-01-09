@@ -1,18 +1,18 @@
-const RavencoinWallet = require("../../dist/index.cjs");
+const TelestaiWallet = require("../../dist/index.cjs");
 const expect = require("chai").expect;
-//Should have 10 RVN on testnet
+//Should have 10 TLS on testnet
 const mnemonic =
   "salad hammer want used web finger comic gold trigger accident oblige pluck";
 
-const walletPromise = RavencoinWallet.createInstance({
+const walletPromise = TelestaiWallet.createInstance({
   mnemonic,
-  network: "rvn-test",
+  network: "tls",
   offlineMode: true,
 });
 
-it("Transaction should have RVN fee", async () => {
+it("Transaction should have TLS fee", async () => {
   const options = {
-    toAddress: "mmmjadMR4LkmHjg7VHQSj3hyp9NjWidzT9",
+    toAddress: "TnJioWxABvGQRHk8GbhaK8KrMTYsKxauT6",
     amount: 1,
   };
   const wallet = await walletPromise;

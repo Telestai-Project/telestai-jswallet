@@ -1,6 +1,6 @@
-import { methods } from "@ravenrebels/ravencoin-rpc";
+import { methods } from "@telestai-project/telestai-rpc";
 import { ONE_FULL_COIN } from "./contants";
-import { Wallet } from "./ravencoinWallet";
+import { Wallet } from "./telestaiWallet";
 
 export async function getBalance(wallet:Wallet, addresses: string[]) {
   const includeAssets = false;

@@ -1,6 +1,6 @@
-import { getRPC, methods } from "@ravenrebels/ravencoin-rpc";
-import RavencoinKey from "@ravenrebels/ravencoin-key";
-import Signer from "@ravenrebels/ravencoin-sign-transaction";
+import { getRPC, methods } from "@telestai-project/telestai-rpc";
+import TelestaiKey from "@telestai-project/telestai-key";
+import Signer from "@telestai-project/telestai-sign-transaction";
 import {
   ChainType,
   IAddressDelta,
@@ -24,22 +24,21 @@ import { getAssets } from "./getAssets";
 
 export { Transaction };
 export { SendManyTransaction };
-const URL_RAVENCOIN_MAINNET = "https://rvn-rpc-mainnet.ting.finance/rpc";
-const URL_RAVENCOIN_TESTNET = "https://rvn-rpc-testnet.ting.finance/rpc";
-const URL_EVRMORE_MAINNET = "https://evr-rpc-mainnet.ting.finance/rpc";
+const URL_TELESTAI_MAINNET = "https://tls-rpc-mainnet.telestai.io/rpc";
+const URL_TELESTAI_TESTNET = "https://tls-rpc-testnet.telestai.io/rpc";
 
 //Avoid singleton (anti-pattern)
 //Meaning multiple instances of the wallet must be able to co-exist
 
 export class Wallet {
-  rpc = getRPC("anonymous", "anonymous", URL_RAVENCOIN_MAINNET);
+  rpc = getRPC("anonymous", "anonymous", URL_TELESTAI_MAINNET);
   _mnemonic = "";
-  network: ChainType = "rvn";
+  network: ChainType = "tls";
   addressObjects: Array<IAddressMetaData> = [];
   receiveAddress = "";
   changeAddress = "";
   addressPosition = 0;
-  baseCurrency = "RVN"; //Default is RVN but it could be EVR
+  baseCurrency = "TLS"; //Default is TLS but it could be EVR
   offlineMode = false;
   setBaseCurrency(currency: string) {
     this.baseCurrency = currency;
@@ -51,7 +50,7 @@ export class Wallet {
    * Sweeping a private key means to send all the funds the address holds to your your wallet.
    * The private key you sweep does not become a part of your wallet.
    *
-   * NOTE: the address you sweep needs to cointain enough RVN to pay for the transaction
+   * NOTE: the address you sweep needs to cointain enough TLS to pay for the transaction
    *
    * @param WIF the private key of the address that you want move funds from
    * @returns either a string, that is the transaction id or null if there were no funds to send
@@ -74,7 +73,7 @@ export class Wallet {
   async init(options: IOptions) {
     let username = "anonymous";
     let password = "anonymous";
-    let url = URL_RAVENCOIN_MAINNET;
+    let url = URL_TELESTAI_MAINNET;
 
     //VALIDATION
     if (!options) {
@@ -87,11 +86,8 @@ export class Wallet {
     if (!options.mnemonic) {
       throw Error("option.mnemonic is mandatory");
     }
-    if (options.network === "rvn-test") {
-      url = URL_RAVENCOIN_TESTNET;
-    }
-    if (options.network === "evr") {
-      url = URL_EVRMORE_MAINNET;
+    if (options.network === "tls-test") {
+      url = URL_TELESTAI_TESTNET;
     }
     url = options.rpc_url || url;
     password = options.rpc_password || password;
@@ -106,8 +102,8 @@ export class Wallet {
     this._mnemonic = options.mnemonic;
 
     //Generating the hd key is slow, so we re-use the object
-    const hdKey = RavencoinKey.getHDKey(this.network, this._mnemonic);
-    const coinType = RavencoinKey.getCoinType(this.network);
+    const hdKey = TelestaiKey.getHDKey(this.network, this._mnemonic);
+    const coinType = TelestaiKey.getCoinType(this.network);
     const ACCOUNT = 0;
 
     const minAmountOfAddresses = Number.isFinite(options.minAmountOfAddresses)
@@ -120,13 +116,13 @@ export class Wallet {
       const tempAddresses = [] as string[];
 
       for (let i = 0; i < 20; i++) {
-        const external = RavencoinKey.getAddressByPath(
+        const external = TelestaiKey.getAddressByPath(
           this.network,
           hdKey,
           `m/44'/${coinType}'/${ACCOUNT}'/0/${this.addressPosition}`
         );
 
-        const internal = RavencoinKey.getAddressByPath(
+        const internal = TelestaiKey.getAddressByPath(
           this.network,
           hdKey,
           `m/44'/${coinType}'/${ACCOUNT}'/1/${this.addressPosition}`
@@ -401,8 +397,8 @@ export class Wallet {
           outputs,
           privateKeys,
           rawUnsignedTransaction: raw,
-          rvnChangeAmount: transaction.getBaseCurrencyChange(),
-          rvnAmount: transaction.getBaseCurrencyAmount(),
+          tlsChangeAmount: transaction.getBaseCurrencyChange(),
+          tlsAmount: transaction.getBaseCurrencyAmount(),
           signedTransaction: signed,
           UTXOs: transaction.getUTXOs(),
           walletMempool: transaction.getWalletMempool(),
@@ -479,8 +475,8 @@ export class Wallet {
           outputs,
           privateKeys,
           rawUnsignedTransaction: raw,
-          rvnChangeAmount: transaction.getBaseCurrencyChange(),
-          rvnAmount: transaction.getBaseCurrencyAmount(),
+          tlsChangeAmount: transaction.getBaseCurrencyChange(),
+          tlsAmount: transaction.getBaseCurrencyAmount(),
           signedTransaction: signed,
           UTXOs: transaction.getUTXOs(),
           walletMempool: transaction.getWalletMempool(),

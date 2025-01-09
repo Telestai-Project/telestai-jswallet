@@ -1,7 +1,7 @@
 {
-  "name": "@ravenrebels/ravencoin-jswallet",
+  "name": "@telestai-project/telestai-jswallet",
   "version": "0.9.4",
-  "description": "Ravencoin JavaScript wallet library",
+  "description": "Telestai JavaScript wallet library",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "files": [
@@ -11,29 +11,32 @@
   ],
   "types": "dist/types.d.ts",
   "scripts": {
-    "build": "parcel build ./src/ravencoinWallet.ts --no-cache",
+    "build": "parcel build ./src/telestaiWallet.ts --no-cache",
     "test": "mocha ./src/tests",
     "prepublishOnly": "npm run build",
     "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ravenrebels/ravencoin-jswallet.git"
+    "url": "git+https://github.com/telestai-project/telestai-jswallet.git"
   },
   "keywords": [
-    "Ravencoin"
+    "Telestai"
   ],
-  "author": "",
+  "authors": [
+    "Zach Price",
+    "Raven Rebels - Dick Henrik Larsson"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ravenrebels/ravencoin-jswallet/issues"
+    "url": "https://github.com/telestai-project/telestai-jswallet/issues"
   },
   "dependencies": {
-    "@ravenrebels/ravencoin-key": "^2.8.0",
-    "@ravenrebels/ravencoin-rpc": "^0.4.1",
-    "@ravenrebels/ravencoin-sign-transaction": "^0.2.12"
+    "@telestai-project/telestai-key": "^1.0.0",
+    "@telestai-project/telestai-rpc": "^0.4.0",
+    "@telestai-project/telestai-sign-transaction": "^0.2.13"
   },
-  "homepage": "https://github.com/ravenrebels/ravencoin-jswallet#readme",
+  "homepage": "https://github.com/telestai-project/telestai-jswallet#readme",
   "devDependencies": {
     "@parcel/packager-ts": "^2.10.3",
     "@parcel/transformer-typescript-types": "^2.10.3",

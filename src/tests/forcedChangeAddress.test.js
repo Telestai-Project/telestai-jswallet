@@ -1,15 +1,15 @@
-const RavencoinWallet = require("../../dist/index.cjs");
+const TelestaiWallet = require("../../dist/index.cjs");
 const expect = require("chai").expect;
-const SendManyTransaction = RavencoinWallet.SendManyTransaction;
+const SendManyTransaction = TelestaiWallet.SendManyTransaction;
 const crazyCatWalletPromise = require("./getWalletPromise");
 
-//Should have 10 RVN on testnet
+//Should have 10 TLS
 const mnemonic =
   "salad hammer want used web finger comic gold trigger accident oblige pluck";
 
-const walletPromise = RavencoinWallet.createInstance({
+const walletPromise = TelestaiWallet.createInstance({
   mnemonic,
-  network: "rvn-test",
+  network: "tls",
   offlineMode: true,
 });
 
@@ -21,9 +21,9 @@ it("Forced change address for assets", async () => {
 
   const options = {
     assetName: "BUTTER",
-    forcedChangeAddressAssets: "mkupbsCoqXbqYnheWbJk21hmKPd6TRVcpz",
+    forcedChangeAddressAssets: "TrNsYVQGCPM3vFgE7KcvPzS6ZsKmUmspx2",
     wallet: wallet2,
-    outputs: { mwPkBNKAnDtZnLEUavx3EV4oXsniqCiugm: 1 },
+    outputs: { TnJioWxABvGQRHk8GbhaK8KrMTYsKxauT6: 1 },
   };
   const sendManyTransaction = new SendManyTransaction(options);
 

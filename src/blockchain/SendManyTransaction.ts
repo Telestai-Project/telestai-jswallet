@@ -1,5 +1,5 @@
 import { InsufficientFundsError, ValidationError } from "../Errors";
-import { Wallet } from "../ravencoinWallet";
+import { Wallet } from "../telestaiWallet";
 import {
   IForcedUTXO,
   IMempoolEntry,
@@ -10,7 +10,7 @@ import { removeDuplicates } from "../utils";
 /**
  * SendManyTransaction Class
  *
- * This class is responsible for calculating the necessary steps to broadcast a Ravencoin transaction:
+ * This class is responsible for calculating the necessary steps to broadcast a Telestai transaction:
  * 1) Identify available UTXOs that are not already spent in the mempool.
  * 2) Determine the required number of UTXOs for creating this transaction.
  * 3) Define the transaction's inputs and outputs.

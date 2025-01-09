@@ -1,5 +1,5 @@
-import { methods } from "@ravenrebels/ravencoin-rpc";
-import { Wallet } from "./ravencoinWallet";
+import { methods } from "@telestai-project/telestai-rpc";
+import { Wallet } from "./telestaiWallet";
 
 export async function getAssets(wallet: Wallet, addresses: string[]) {
   const includeAssets = true;

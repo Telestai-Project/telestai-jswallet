@@ -1,13 +1,13 @@
-const RavencoinWallet = require("../../dist/index.cjs");
+const TelestaiWallet = require("../../dist/index.cjs");
 const expect = require("chai").expect;
 
 it("Test receive and change address", async () => {
   /* 
    Change address and receive address should NOT be the same
   */
-  const network = "rvn-test";
+  const network = "tls";
 
-  const wallet = await RavencoinWallet.createInstance({
+  const wallet = await TelestaiWallet.createInstance({
     mnemonic:
       "frozen drift quiz glove wrong cycle glide increase hybrid arch endorse brisk",
     network,

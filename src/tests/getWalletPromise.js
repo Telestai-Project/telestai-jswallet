@@ -1,12 +1,11 @@
-const RavencoinWallet = require("../../dist/index.cjs");
+const TelestaiWallet = require("../../dist/index.cjs");
 
-//Account "Crazy Cat" on https://testnet.ting.finance/
 const mnemonic =
-  "mesh beef tuition ensure apart picture rabbit tomato ancient someone alter embrace";
+  "salad hammer want used web finger comic gold trigger accident oblige pluck";
 
-const walletPromise = RavencoinWallet.createInstance({
+const walletPromise = TelestaiWallet.createInstance({
   mnemonic,
-  network: "rvn-test",
+  network: "tls",
 });
 
 module.exports = walletPromise;
