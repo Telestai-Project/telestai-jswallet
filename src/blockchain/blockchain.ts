@@ -113,10 +113,10 @@ export function getAllUnspentTransactionOutputs(
   Never both.
   So we make two requests and we join the answer
   */
-  const raven = rpc("getaddressutxos", [{ addresses }]);
+  const telestai = rpc("getaddressutxos", [{ addresses }]);
   const assets = rpc("getaddressutxos", [{ addresses, assetName: "*" }]);
 
-  return Promise.all([raven, assets]).then((values: Array<any>) => {
+  return Promise.all([telestai, assets]).then((values: Array<any>) => {
     const all = values[0].concat(values[1]);
     return all;
   });

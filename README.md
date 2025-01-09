@@ -1,4 +1,4 @@
-# ravencoin-jswallet
+# telestai-jswallet
 
 Telestai wallet library for JavaScript.
 Non-custodial.
@@ -154,14 +154,12 @@ console.log("Sending", result.transactionId);
 
 When you create your instance of a wallet you can specify some stuff.
 
-You can set network to be something else than TLS, for example EVR.
-
 You can specify your own RPC node URL and username/password.
 
 ```
 export interface IOptions {
     mnemonic: string;
-    network?: ChainType; (that is "tls" | "tls-test" | "evr" | "evr-test")
+    network?: ChainType; (that is "tls" | "tls-test")
     rpc_username?: string;
     rpc_password?: string;
     rpc_url?: string;

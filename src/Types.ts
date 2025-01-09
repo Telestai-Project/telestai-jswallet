@@ -217,9 +217,9 @@ export interface IUser {
   profileImageURL?: string;
 }
 export interface IConfig {
-  raven_username: string;
-  raven_password: string;
-  raven_url: string;
+  telestai_username: string;
+  telestai_password: string;
+  telestai_url: string;
   network: string;
 }
 
