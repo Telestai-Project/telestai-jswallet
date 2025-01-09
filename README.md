@@ -3,7 +3,7 @@
 Telestai wallet library for JavaScript.
 Non-custodial.
 By default it interacts with the Telestai blockchain using public RPC services from
-https://rpc.ting.finance/ for both testnet and mainnet.
+https://tls-rpc-mainnet.telestai.io/.
 You are free to use any RPC-service you like, including your own.
 See section [Run your own blockchain node](#run-your-own-blockchain-node) for more info
 

@@ -1,6 +1,6 @@
 {
   "name": "@telestai-project/telestai-jswallet",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Telestai JavaScript wallet library",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
