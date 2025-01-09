@@ -96,7 +96,6 @@ const wallet = await TelestaiWallet.createInstance({
 //index.mjs very important that file extension is .mjs
 import TelestaiWallet from "@telestai-project/telestai-jswallet";
 
-//This wallet belongs to account "Crazy Cat" on https://testnet.ting.finance/signin/
 const options = {
   mnemonic:
     "mesh beef tuition ensure apart picture rabbit tomato ancient someone alter embrace",
@@ -106,7 +105,7 @@ const wallet = await TelestaiWallet.createInstance(options);
 const addy = await wallet.getReceiveAddress();
 console.log("My receive address", addy);
 
-//Send 100 TLS to Barry Crump on https://testnet.ting.finance/
+//Send 100 TLS
 await wallet.send({
   //Send 100 TLS
   toAddress: "mhBKhj5FxzBu1h8U6pSB16pwmjP7xo4ehG",
@@ -114,7 +113,7 @@ await wallet.send({
   assetName:"TLS",
 });
 
-//Send 313 BUTTER tokens to Barry Crump on https://testnet.ting.finance/
+//Send 313 BUTTER tokens
 const transactionId = await wallet.send({
   assetName: "BUTTER",
   amount: 313,
@@ -129,7 +128,6 @@ console.log("Sending", transactionId);
 //index.mjs very important that file extension is .mjs
 import TelestaiWallet from "@telestai-project/telestai-jswallet";
 
-//This wallet belongs to account "Crazy Cat" on https://testnet.ting.finance/signin/
 const options = {
   mnemonic:
     "mesh beef tuition ensure apart picture rabbit tomato ancient someone alter embrace",
