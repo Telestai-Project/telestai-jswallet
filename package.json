@@ -1,6 +1,6 @@
 {
   "name": "@telestai-project/telestai-jswallet",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "Telestai JavaScript wallet library",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -32,7 +32,7 @@
     "url": "https://github.com/telestai-project/telestai-jswallet/issues"
   },
   "dependencies": {
-    "@telestai-project/telestai-key": "^1.0.0",
+    "@telestai-project/telestai-key": "^2.8.2",
     "@telestai-project/telestai-rpc": "^0.4.0",
     "@telestai-project/telestai-sign-transaction": "^0.2.13"
   },
